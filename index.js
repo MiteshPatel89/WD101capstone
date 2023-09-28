@@ -1,5 +1,3 @@
-window.onload = () => {
-
     const form = document.getElementById('registrationForm');
     const table = document.getElementById('userTable');
     const tbody = table.querySelector('tbody');
@@ -66,6 +64,3 @@ window.onload = () => {
         // Reset form
         form.reset();
     });
-
-    
-}

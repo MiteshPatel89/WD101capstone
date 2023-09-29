@@ -1,48 +1,123 @@
-
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-        <title>Registration Form</title>
-       
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .form_container {
+            width: 400px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        .table_container {
+            width: 700px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        input[type="text"], input[type="email"], input[type="password"], input[type="date"], input[type="checkbox"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 3px;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #008000;
+            color: #fff;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        #output {
+            margin-top: 20px;
+        }
+        /* Apply some basic styling to the entire table */
+        table {
+        width: 100%;
+
+        }
+
+        /* Style for table header cells */
+        th {   
+            padding: 8px;
+            text-align: left;
+            }
+
+            /* Style for table data cells */
+        td {
+        padding: 8px;
+        }
+
+    </style>
+     <!-- Bootstrap -->
+    <script type="text/javascript" src='https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.3.min.js'></script>
+    <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/js/bootstrap.min.js'></script>
+    <link rel="stylesheet" href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.0.3/css/bootstrap.min.css' media="screen" />
+    <!-- Bootstrap -->
+    <!-- Bootstrap DatePicker -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/css/bootstrap-datepicker.css" type="text/css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.6.4/js/bootstrap-datepicker.js" type="text/javascript"></script>
 </head>
 <body>
-    <h1>Registration Form</h1>
-    <form id="registrationForm">
-        <fieldset>
-            <legend>User information</legend>
-            <label for="name">Name:</label>
-            <input type="text" id="name" name="name" required><br><br>
-            
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" required><br><br>
-            
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required><br><br>
-            
-            <label for="dob">Date of Birth:</label>
-            <input type="date" id="dob" name="dob" required><br><br>
-            
-            <label for="acceptTerms">Accept Terms & Conditions</label>
-            <input type="checkbox" id="acceptTerms" name="acceptTerms" required><br><br>
-            
-            <button type="submit">Submit</button>
-        </fieldset>
-    </form>
-
-    <h2>Registered Users</h2>
-    <table id="userTable" border="1">
-        <thead>
-            <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Password</th>
-                <th>DOB</th>
-                <th>Accepted terms?</th>
-            </tr>
-        </thead>
-        <tbody></tbody>
-    </table>
-
+    <div class="form_container">
     
+    <h2><center>Registration Form</h2></center>
+        <table>
+        <form id="registrationForm" >
+            <tr><td><label for="name">Name<font color=red>*</font></label></td>
+            <td><input type="text" id="name" name="name" required></td></tr>
+
+           <tr><td> <label for="email">Email<font color=red>*</font></label></td>
+           <td> <input type="email" id="email" name="email" required   ></td></tr>
+
+            <tr><td><label for="password">Password<font color=red>*</font></label></td>
+            <td><input type="password" id="password" name="password"required></td></tr>
+
+            <tr><td><label for="dob">Date of Birth<font color=red>*</font></label></td>
+            <td><input  type="date" id="dob" name="dob"  onchange="restrict()" required class="form-control date-input"></td></tr>
+            <tr><td>
+                <input type="checkbox" id="terms" name="terms" required></td>
+                <td><label>I accept the terms and conditions.
+            </label></td></tr>
+<tr><td colspan="2">
+            <button type="submit" >Submit</button></td></tr></table>
+        </form>
+    </div>
+<div class="table_container" id="output">
+        <h2><center>Entries</center></h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Password</th>
+                    <th>Dob</th>
+                    <th>Accepted terms?</th>
+                </tr>
+            </thead>
+            <tbody id="userTableBody"></tbody>
+        </table>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <script src="index.js">
+        
+     
+    </script>
 </body>
-         <script src="index.js"></script>
 </html>
